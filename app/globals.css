@@ -1,0 +1,88 @@
+/* app/globals.css */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Paleta base */
+  --background: #e0dbce;
+  --foreground: #1a1a1a;
+  --primary: #553b2b;
+  --primary-foreground: #ffffff;
+  --secondary: #8b7355;
+  --secondary-foreground: #ffffff;
+  --accent: #d4b5a0;
+  --accent-foreground: #1a1a1a;
+  --muted: #f5f2ea;
+  --muted-foreground: #666666;
+  --border: #d9d1c0;
+  --ring: #553b2b;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --radius: 1.5rem;
+
+  /* fontes escolhidas (valores preenchidos via <style> no layout) */
+  --font-heading: system-ui, Arial, sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+}
+
+.dark {
+  --background: #2a2420;
+  --foreground: #f5f2ea;
+  --primary: #8b7355;
+  --primary-foreground: #f5f2ea;
+  --secondary: #553b2b;
+  --secondary-foreground: #f5f2ea;
+  --accent: #d4b5a0;
+  --accent-foreground: #1a1a1a;
+  --muted: #3a3530;
+  --muted-foreground: #b0a89a;
+  --border: #4a4540;
+  --ring: #d4b5a0;
+  --destructive: #ff5555;
+  --destructive-foreground: #1a1a1a;
+}
+
+@theme inline {
+  /* mapeamento Tailwind v4 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+  --radius: 1.5rem;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, .heading, strong {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* rolagem e seleção */
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+::selection {
+  background: color-mix(in oklab, var(--primary) 30%, white);
+  color: var(--primary-foreground);
+}
