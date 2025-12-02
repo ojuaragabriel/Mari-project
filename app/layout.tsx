@@ -1,7 +1,8 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Lexend, Montserrat, Lora, Playfair_Display, EB_Garamond } from "next/font/google"
-import localFont from "next/font/local" // <--- 1. Importei o localFont
+// localFont import removed because the local .ttf file was missing during build
+// import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
@@ -11,12 +12,9 @@ const lora = Lora({ subsets: ["latin"], variable: "--font-lora" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
 const ebGaramond = EB_Garamond({ subsets: ["latin"], variable: "--font-ebgaramond" })
 
-// <--- 2. Configuração da nova fonte Dream Avenue
-const dreamAvenue = localFont({
-  src: "./fonts/DreamAvenue.ttf", // Certifique-se que o nome do arquivo na pasta fonts é exatamente este
-  variable: "--font-dream",
-  display: "swap",
-})
+// NOTE: DreamAvenue custom font removed until the .ttf file is added to the repository.
+// If you want to use a local font, add the font file to `app/fonts/DreamAvenue.ttf`
+// and uncomment the localFont import above as well as this configuration.
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.seusite.com.br"),
@@ -83,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         lora.variable,
         playfair.variable,
         ebGaramond.variable,
-        dreamAvenue.variable,
+        // dreamAvenue.variable,
       ].join(" ")}
     >
       <head>
