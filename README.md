@@ -16,7 +16,7 @@ Your project is live at:
 
 **[https://vercel.com/ojuaragabriels-projects/v0-psychologist-landing-page](https://vercel.com/ojuaragabriels-projects/v0-psychologist-landing-page)**
 
-## Build your app
+## Build your app 
 
 Continue building your app on:
 
